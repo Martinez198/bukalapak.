@@ -14,7 +14,7 @@ class Bukalapak():
         return parser
 
     def get_pages(self):
-        url = "https://api.bukalapak.com/multistrategy-products?keywords=samsung&limit=50&offset=0&facet=true&page=1&shouldUseSeoMultistrategy=false&access_token=bWHCCJgfTrAr1QyOUYCLdfbuZ55W032LZ6yQh5Ij5Ty-MQ"
+        url = "https://api.bukalapak.com/multistrategy-products?keywords=samsung&limit=50&offset=0&facet=true&page=1&shouldUseSeoMultistrategy=false&access_token=DSVhvXStYMoRFI5PL5vAxpV2MwjWpAO3mPT5cPRus_hsQg"
         r = requests.get(url).json()
         return r.get("meta").get('total_pages')
 
@@ -22,7 +22,7 @@ class Bukalapak():
         out_file = open(self.args.out_file, 'w')
         pg_count = self.get_pages()
         for i in range(1,  pg_count+1):
-            url = "https://api.bukalapak.com/multistrategy-products?keywords=samsung&limit=50&offset=0&facet=true&page="+str(i)+"&shouldUseSeoMultistrategy=false&access_token=bWHCCJgfTrAr1QyOUYCLdfbuZ55W032LZ6yQh5Ij5Ty-MQ"
+            url = "https://api.bukalapak.com/multistrategy-products?keywords=samsung&limit=50&offset=0&facet=true&page="+str(i)+"&shouldUseSeoMultistrategy=false&access_token=DSVhvXStYMoRFI5PL5vAxpV2MwjWpAO3mPT5cPRus_hsQg"
             r = requests.get(url).json()
             for data_ in r.get('data'):
                 dic = {}
